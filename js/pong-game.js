@@ -40,11 +40,14 @@ function preload()
 function create()
 {
     this.add.image(300, 400, 'background');
-    paddle = this.physics.add.sprite(300, 700, 'paddle');
+    paddle = this.physics.add.sprite(300, 750, 'paddle');
     ball = this.physics.add.sprite(300, 400, 'ball');
     blocks = this.physics.add.staticGroup();
 
-    blocks.create(39, 12, 'yellow-block');
+    for(var i = 1; i<=8; i++)
+    {
+        blocks.create(4*i + 35*i, 12, 'yellow-block');
+    }
 
 }
 

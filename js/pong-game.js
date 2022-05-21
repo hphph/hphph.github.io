@@ -27,14 +27,14 @@ function preload()
 {
     this.load.image('background', 'assets/background600x800.png');
     this.load.image('paddle', 'assets/paddle.png');
-    this.load.image('yellow-block', 'yellow-block.png');
-    this.load.image('red-block', 'red-block.png');
-    this.load.image('pink-block', 'pink-block.png');
-    this.load.image('orange-block', 'orange-block.png');
-    this.load.image('lightblue-block', 'lightblue-block.png');
-    this.load.image('grey-block', 'grey-block.png');
-    this.load.image('darkblue-block', 'darkblue-block.png');
-    this.load.image('ball', 'ball.png');
+    this.load.image('yellow-block', 'assets/yellow-block.png');
+    this.load.image('red-block', 'assets/red-block.png');
+    this.load.image('pink-block', 'assets/pink-block.png');
+    this.load.image('orange-block', 'assets/orange-block.png');
+    this.load.image('lightblue-block', 'assets/lightblue-block.png');
+    this.load.image('grey-block', 'assets/grey-block.png');
+    this.load.image('darkblue-block', 'assets/darkblue-block.png');
+    this.load.image('ball', 'assets/ball.png');
 }
 
 function create()
@@ -42,6 +42,9 @@ function create()
     this.add.image(300, 400, 'background');
     paddle = this.physics.add.sprite(300, 700, 'paddle');
     ball = this.physics.add.sprite(300, 400, 'ball');
+    blocks = this.physics.add.staticGroup();
+
+    blocks.create(39, 12, 'yellow-block');
 
 }
 

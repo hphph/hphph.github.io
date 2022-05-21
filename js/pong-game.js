@@ -44,9 +44,9 @@ function create()
     ball = this.physics.add.sprite(300, 400, 'ball');
     blocks = this.physics.add.staticGroup();
 
-    for(var i = 1; i<=8; i++)
+    for(var i = 0; i<8; i++)
     {
-        blocks.create(4*i + 35*i, 12, 'yellow-block');
+        blocks.create(39 + 74*i, 12, 'yellow-block');
     }
 
 }

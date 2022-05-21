@@ -27,13 +27,13 @@ function preload()
 {
     this.load.image('background', 'assets/background600x800.png');
     this.load.image('paddle', 'assets/paddle.png');
-    this.load.image('yellow-block', 'assets/yellow-block.png');
-    this.load.image('red-block', 'assets/red-block.png');
-    this.load.image('pink-block', 'assets/pink-block.png');
-    this.load.image('orange-block', 'assets/orange-block.png');
-    this.load.image('lightblue-block', 'assets/lightblue-block.png');
-    this.load.image('grey-block', 'assets/grey-block.png');
-    this.load.image('darkblue-block', 'assets/darkblue-block.png');
+    this.load.image('block1', 'assets/yellow-block.png');
+    this.load.image('block2', 'assets/red-block.png');
+    this.load.image('block3', 'assets/pink-block.png');
+    this.load.image('block4', 'assets/orange-block.png');
+    this.load.image('block5', 'assets/lightblue-block.png');
+    this.load.image('block6', 'assets/grey-block.png');
+    this.load.image('block7', 'assets/darkblue-block.png');
     this.load.image('ball', 'assets/ball.png');
 }
 
@@ -44,9 +44,12 @@ function create()
     ball = this.physics.add.sprite(300, 400, 'ball');
     blocks = this.physics.add.staticGroup();
 
-    for(var i = 0; i<8; i++)
+    for(var j = 1; j <=7; j++)
     {
-        blocks.create(39 + 74*i, 12, 'yellow-block');
+        for(var i = 0; i<8; i++)
+        {
+            blocks.create(39 + 74*i, j*19 + 12, 'block' + j);
+        }
     }
 
 }

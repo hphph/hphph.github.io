@@ -1,7 +1,9 @@
 $(function ()
 {
     let board = ['', '', '', '', '', '', '', '', ''];
-    let isGameRunning = true;
+    let placedBoard = 0;
+    var isGameRunning = true;
+    var returnVal = "Remis";
     let actSign = 'O';
 
     const winState = [
@@ -15,51 +17,87 @@ $(function ()
         [2, 4, 5],
     ]
     
-    $(".tile").click(function(){
-        let id = $(this).attr('id');
-        if(board[id] == '')
-        {
-            alert("puste");
-            board[id] = actSign;
-            $(this).text(actSign);
-            if(actSign == 'O')
+    if(isGameRunning)
+    {
+        $(".tile").click(function(){
+            let id = $(this).attr('id');
+            if(board[id] == '')
             {
-                actSign = 'X';
-            }
-            else
-            {
-                actSign = 'O';
-            }
-        }
-        else
-        {
-            alert(board[id]);
-        }
-
-        for(var i = 0; i<8; i++)
-        {
-            if(board[winState[i][0]] == '')
-            {
-                continue;
-            }
-            else
-            {
-                var sign = board[winState[i][0]];
-                var isWin = true;
-            }
-            for(var j = 0; j<3; j++)
-            {
-                if(board[winState[i][j]] != sign)
+                var rnd = Math.floor(Math.random() * 8.99);
+                board[id] = actSign;
+                $(this).text(actSign);
+                if(actSign == 'O')
                 {
-                    isWin = false;
+                    actSign = 'X';
+                }
+                else
+                {
+                    actSign = 'O';
+                }
+                placedBoard++;
+                if(placedBoard > 8)
+                {
+                    isGameRunning = false;
+                    alert(isGameRunning);
+                }
+                if(isGameRunning)
+                {
+                    while(board[rnd] != '')
+                    {
+                        rnd = Math.floor(Math.random() * 8.99);
+                    }
+                    board[rnd] = actSign;
+                    $("#"+rnd).text(actSign);
+                    if(actSign == 'O')
+                    {
+                        actSign = 'X';
+                    }
+                    else
+                    {
+                        actSign = 'O';
+                    }
+                    placedBoard++;
+                }
+            }
+
+            for(var i = 0; i<8; i++)
+            {
+                if(board[winState[i][0]] == '')
+                {
+                    continue;
+                }
+                else
+                {
+                    var sign = board[winState[i][0]];
+                    var isWin = true;
+                }
+                for(var j = 0; j<3; j++)
+                {
+                    if(board[winState[i][j]] != sign)
+                    {
+                        isWin = false;
+                        break;
+                    }
+                }
+                if(isWin)
+                {
+                    isGameRunning = false;
+                    if(sign == 'O')
+                    {
+                        returnVal = "Wygrana";
+                    }
+                    else
+                    {
+                        returnVal = "Przegrana";
+                    }
                     break;
                 }
             }
-            if(isWin)
-            {
-                alert("Win");
-                break;
-            }
-        }
-    });
+        });
+    }
+    else
+    {
+        $(".status").text(returnVal);
+        alert(returnVal);
+    }
 });

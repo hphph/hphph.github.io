@@ -19,6 +19,9 @@ const config = {
 
 var game = new Phaser.Game(config);
 var cursors;
+var paddle;
+var blocks;
+var ball;
 
 
 function preload()
@@ -38,9 +41,9 @@ function preload()
 function create()
 {
     this.add.image(300, 400, 'background');
-    var paddle = this.physics.add.image(300, 750, 'paddle');
-    var ball = this.physics.add.image(300, 400, 'ball').setCollideWorldBounds(true).setBounce(1);
-    var blocks = this.physics.add.staticGroup();
+    paddle = this.physics.add.image(300, 750, 'paddle');
+    ball = this.physics.add.image(300, 400, 'ball').setCollideWorldBounds(true).setBounce(1);
+    blocks = this.physics.add.staticGroup();
 
     for(var j = 1; j <=7; j++)
     {

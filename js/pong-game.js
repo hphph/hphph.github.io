@@ -54,6 +54,8 @@ function create()
     }
 
     this.physics.world.setBoundsCollision(true, true, true, false);
+    this.physics.add.collider(paddle, ball, blocks);
+    ball.setVelocity(-75, -300);
 
     cursors = this.input.keyboard.createCursorKeys();
 }
@@ -62,11 +64,11 @@ function update()
 {
     if(cursors.left.isDown)
     {
-        paddle.setVelocityX(-160);
+        paddle.setVelocityX(-320);
     }
     else if(cursors.right.isDown)
     {
-        paddle.setVelocityX(160);
+        paddle.setVelocityX(320);
     }
     else
     {

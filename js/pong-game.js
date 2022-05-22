@@ -42,7 +42,7 @@ function create()
 {
     this.add.image(300, 400, 'background');
     paddle = this.physics.add.image(300, 750, 'paddle');
-    ball = this.physics.add.image(300, 400, 'ball').setColliderBounds(true).setBounce(1);
+    ball = this.physics.add.image(300, 400, 'ball').setCollideWorldBounds(true).setBounce(1);
     blocks = this.physics.add.staticGroup();
 
     for(var j = 1; j <=7; j++)

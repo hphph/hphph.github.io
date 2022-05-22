@@ -41,7 +41,7 @@ function preload()
 function create()
 {
     this.add.image(300, 400, 'background');
-    paddle = this.physics.add.image(300, 750, 'paddle').setImmovable();
+    paddle = this.physics.add.image(300, 750, 'paddle').setImmovable().setCollideWorldBounds(true);
     ball = this.physics.add.image(300, 400, 'ball').setCollideWorldBounds(true).setBounce(1);
     blocks = this.physics.add.staticGroup();
 

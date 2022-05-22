@@ -54,8 +54,8 @@ function create()
     }
 
     this.physics.world.setBoundsCollision(true, true, true, false);
-    this.physics.add.collider(ball, paddle, hitPaddle, null, this);
-    this.physics.add.collider(ball, blocks, hitBlocks, null, this);
+    this.physics.add.collider(ball, paddle);
+    this.physics.add.collider(ball, blocks);
     ball.setVelocity(-75, -300);
 
     cursors = this.input.keyboard.createCursorKeys();

@@ -32,7 +32,6 @@ header{
 
 .logo{
     cursor: pointer;
-
 }
 
 .nav_links{
@@ -53,7 +52,7 @@ header{
 }
 
 .container {
-    margin: 0 auto;
+    margin: 200px auto;
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 33% 33% 33%;
@@ -62,12 +61,13 @@ header{
 
 .tile{
     border: 1px solid white;
+    font-size: 70px;
     min-width: 100px;
     min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 80px;
     cursor: pointer;
 }
 

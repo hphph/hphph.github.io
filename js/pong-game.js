@@ -38,22 +38,22 @@ function preload()
 function create()
 {
     this.add.image(300, 400, 'background');
-    this.paddle = this.physics.add.image(300, 750, 'paddle');
-    this.ball = this.physics.add.image(300, 400, 'ball').setCollideWorldBounds(true).setBounce(1);
-    this.blocks = this.physics.add.staticGroup();
+    var paddle = this.physics.add.image(300, 750, 'paddle');
+    var ball = this.physics.add.image(300, 400, 'ball').setCollideWorldBounds(true).setBounce(1);
+    var blocks = this.physics.add.staticGroup();
 
     for(var j = 1; j <=7; j++)
     {
         for(var i = 0; i<8; i++)
         {
-            this.blocks.create(39 + 74*i, j*19 + 12, 'block' + j);
+            blocks.create(39 + 74*i, j*19 + 12, 'block' + j);
         }
     }
 
     this.physics.world.setBoundsCollision(true, true, true, false);
-    this.physics.add.collider(this.ball, this.paddle);
-    this.physics.add.collider(this.ball, this.blocks);
-    this.ball.setVelocity(-75, -300);
+    this.physics.add.collider(ball, paddle);
+    this.physics.add.collider(ball, blocks);
+    ball.setVelocity(-75, -300);
 
     cursors = this.input.keyboard.createCursorKeys();
 }

@@ -88,14 +88,14 @@ function resetBall()
     ball.setPosition(paddle.x, 400);
 }
 
-function hitBlock(ball, brick)
+function hitBlock(ball, block)
 {
-    blocks.disableBody(true, true);
+    block.disableBody(true, true);
 
     if(blocks.countActive() === 0)
     {
-        blocks.children.each(function (block){
-            block.enableBody(false, 0, 0, true, true);
+        blocks.children.each(function (brick){
+            brick.enableBody(false, 0, 0, true, true);
         })
         resetBall();
     }

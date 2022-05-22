@@ -25,7 +25,6 @@ header{
     sdisplay: flex;
     background-color: #3B4252;
     sjustify-content: space-between;
-    text-align: center;
     align-items: center;
     padding: 20px 5%;
     border-bottom: solid 2px #2E3440;
@@ -38,6 +37,7 @@ header{
 
 .nav_links{
     list-style: none;
+    text-align: center;
 }
 
 .nav_links li{

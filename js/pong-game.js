@@ -54,8 +54,8 @@ function create()
     }
 
     this.physics.world.setBoundsCollision(true, true, true, false);
-    this.physics.add.collider(ball, paddle);
-    this.physics.add.collider(ball, blocks);
+    this.physics.add.collider(ball, paddle, hitPaddle, null);
+    this.physics.add.collider(ball, blocks, hitBlock, null);
     ball.setVelocity(-75, -300);
 
     cursors = this.input.keyboard.createCursorKeys();
@@ -74,5 +74,49 @@ function update()
     else
     {
         paddle.setVelocityX(0);
+    }
+
+    if(this.ball.y > 800)
+    {
+        resetBall();
+    }
+}
+
+function resetBall()
+{
+    ball.setVelocity(0);
+    ball.setPosition(paddle.x, 400);
+}
+
+function hitBlock(ball, brick)
+{
+    blocks.disableBody(true, true);
+
+    if(blocks.countActive() === 0)
+    {
+        blocks.children.each(function (block){
+            block.enableBody(false, 0, 0, true, true);
+        })
+        resetBall();
+    }
+}
+
+function hitPaddle(ball, paddle)
+{
+    var delta = 0;
+
+    if(ball.x < paddle.x)
+    {
+        delta = paddle.x - ball.x;
+        ball.setVelocityX(-12 * delta);
+    }
+    else if (ball.x > paddle.x)
+    {
+        delta = ball.x - paddle.x;
+        ball.setVelocityX(12 * delta);
+    }
+    else
+    {
+        ball.setVelocityX(2 + Math.random() * 8);
     }
 }

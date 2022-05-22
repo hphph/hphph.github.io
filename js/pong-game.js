@@ -21,6 +21,7 @@ var game = new Phaser.Game(config);
 var paddle;
 var ball;
 var blocks;
+var cursors;
 
 
 function preload()
@@ -40,8 +41,8 @@ function preload()
 function create()
 {
     this.add.image(300, 400, 'background');
-    paddle = this.physics.add.sprite(300, 750, 'paddle');
-    ball = this.physics.add.sprite(300, 400, 'ball');
+    paddle = this.physics.add.image(300, 750, 'paddle');
+    ball = this.physics.add.image(300, 400, 'ball').setColliderBounds(true).setBounce(1);
     blocks = this.physics.add.staticGroup();
 
     for(var j = 1; j <=7; j++)
@@ -52,9 +53,23 @@ function create()
         }
     }
 
+    this.physics.world.setBoundsCollision(true, true, true, false);
+
+    cursors = this.input.keyboard.createCursorKeys();
 }
 
 function update()
 {
-
+    if(cursors.left.isDown)
+    {
+        paddle.setVelocityX(-160);
+    }
+    else if(cursors.right.isDown)
+    {
+        paddle.setVelocityX(160);
+    }
+    else
+    {
+        paddle.setVelocityX(0);
+    }
 }

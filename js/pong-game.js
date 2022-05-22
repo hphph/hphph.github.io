@@ -76,7 +76,7 @@ function update()
         paddle.setVelocityX(0);
     }
 
-    if(this.ball.y > 800)
+    if(ball.y > 800)
     {
         resetBall();
     }

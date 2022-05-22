@@ -22,9 +22,9 @@ li, a{
 }
 
 header{
-    sdisplay: flex;
+    display: flex;
     background-color: #3B4252;
-    sjustify-content: space-between;
+    justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
     border-bottom: solid 2px #2E3440;
@@ -37,7 +37,6 @@ header{
 
 .nav_links{
     list-style: none;
-    text-align: center;
 }
 
 .nav_links li{
@@ -51,5 +50,13 @@ header{
 
 .nav_links li a:hover {
     color: #B48EAD;
+}
+
+.container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 300px;
 }
 

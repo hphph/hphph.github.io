@@ -84,7 +84,7 @@ function update()
 
 function resetBall()
 {
-    ball.setVelocity(0);
+    ball.setVelocityX(150);
     ball.setPosition(paddle.x, 400);
 }
 

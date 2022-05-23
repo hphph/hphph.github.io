@@ -16,10 +16,16 @@ $(function ()
         [0, 4, 8],
         [2, 4, 5],
     ]
-    
-    if(isGameRunning)
+
+    function onEnd(s)
     {
-        $(".tile").click(function(){
+        alert(s);
+    }
+    
+        
+    $(".tile").click(function(){
+        if(isGameRunning)
+        {
             let id = $(this).attr('id');
             if(board[id] == '')
             {
@@ -37,8 +43,46 @@ $(function ()
                 placedBoard++;
                 if(placedBoard > 8)
                 {
+                    for(var i = 0; i<8; i++)
+                    {
+                        if(board[winState[i][0]] == '')
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            var sign = board[winState[i][0]];
+                            var isWin = true;
+                        }
+                        for(var j = 0; j<3; j++)
+                        {
+                            if(board[winState[i][j]] != sign)
+                            {
+                                isWin = false;
+                                break;
+                            }
+                        }
+                        if(isWin)
+                        {
+                            isGameRunning = false;
+                            if(sign == 'O')
+                            {
+                                returnVal = "Wygrana";
+                                onEnd(returnVal);
+                                return;
+                            }
+                            else
+                            {
+                                returnVal = "Przegrana";
+                                onEnd(returnVal);
+                                return;
+                            }
+                            break;
+                        }
+                    }
                     isGameRunning = false;
-                    alert(isGameRunning);
+                    onEnd(returnVal);
+                    return;
                 }
                 if(isGameRunning)
                 {
@@ -50,14 +94,14 @@ $(function ()
                     $("#"+rnd).text(actSign);
                     if(actSign == 'O')
                     {
-                        actSign = 'X';
+                            actSign = 'X';
                     }
                     else
                     {
-                        actSign = 'O';
+                            actSign = 'O';
                     }
                     placedBoard++;
-                }
+                    }
             }
 
             for(var i = 0; i<8; i++)
@@ -85,19 +129,18 @@ $(function ()
                     if(sign == 'O')
                     {
                         returnVal = "Wygrana";
+                        onEnd(returnVal);
+                        return;
                     }
                     else
                     {
                         returnVal = "Przegrana";
+                        onEnd(returnVal);
+                        return;
                     }
                     break;
                 }
             }
+        }
         });
-    }
-    else
-    {
-        $(".status").text(returnVal);
-        alert(returnVal);
-    }
 });

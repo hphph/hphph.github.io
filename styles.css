@@ -53,6 +53,7 @@ header{
 
 .container {
     margin: 200px auto;
+    margin-bottom: 0px;
     display: grid;
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: 33% 33% 33%;
@@ -71,6 +72,26 @@ header{
     cursor: pointer;
 }
 
+.status{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+}
 
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px 20%;
+    font-size: 20px;
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+}
+
+.buttons li:hover {
+    color: #B48EAD;
+    transition: all 0.3s ease 0s;
+}
 
 

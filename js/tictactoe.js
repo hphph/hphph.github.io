@@ -138,8 +138,8 @@ $(function ()
                 {
                     isGameRunning = false;
                     $.get("gamePaused.txt", function(data, status){
-                        $(".status").html(data);
-                    })
+                        $(".gamePaused").html(data);
+                    });
 
                     if(sign == 'O')
                     {

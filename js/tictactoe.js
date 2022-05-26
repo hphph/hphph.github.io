@@ -5,6 +5,7 @@ $(function ()
     var isGameRunning = true;
     var returnVal = "Remis";
     let actSign = 'O';
+    let numWins = 0;
 
     const winState = [
         [0, 1, 2],
@@ -14,13 +15,23 @@ $(function ()
         [1, 4, 7],
         [2, 5, 8],
         [0, 4, 8],
-        [2, 4, 5],
+        [2, 4, 6],
     ]
 
     function onEnd(s)
     {
         alert(s);
     }
+
+    $("#reset").click(function()
+    {
+        board = ['', '', '', '', '', '', '', '', ''];
+        placedBoard = 0;
+        isGameRunning = true;
+        returnVal = "Remis";
+        actSign = 'O';
+        $(".tile").text("");
+    });
     
         
     $(".tile").click(function(){
@@ -126,9 +137,15 @@ $(function ()
                 if(isWin)
                 {
                     isGameRunning = false;
+                    $.get("gamePaused.txt", function(data, status){
+                        $(".status").html(data);
+                    })
+
                     if(sign == 'O')
                     {
                         returnVal = "Wygrana";
+                        numWins++;
+                        $("#score").text("Wynik: " + numWins);
                         onEnd(returnVal);
                         return;
                     }

@@ -28,6 +28,7 @@ $(function ()
         board = ['', '', '', '', '', '', '', '', ''];
         placedBoard = 0;
         isGameRunning = true;
+        $(".gamePaused").html("");
         returnVal = "Remis";
         actSign = 'O';
         $(".tile").text("");
@@ -76,6 +77,9 @@ $(function ()
                         if(isWin)
                         {
                             isGameRunning = false;
+                            $.get("gamePaused.txt", function(data, status){
+                                $(".gamePaused").html(data);
+                            });
                             if(sign == 'O')
                             {
                                 returnVal = "Wygrana";
@@ -92,6 +96,9 @@ $(function ()
                         }
                     }
                     isGameRunning = false;
+                    $.get("gamePaused.txt", function(data, status){
+                        $(".gamePaused").html(data);
+                    });
                     onEnd(returnVal);
                     return;
                 }

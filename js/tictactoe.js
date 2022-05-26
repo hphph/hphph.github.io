@@ -23,7 +23,7 @@ $(function ()
         alert(s);
     }
 
-    $("#reset").click(function()
+    $(document).on('click', '#reset', function()
     {
         board = ['', '', '', '', '', '', '', '', ''];
         placedBoard = 0;

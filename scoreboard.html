@@ -3,6 +3,8 @@
     <head>
         <title>Strona</title>
         <link rel="stylesheet" href="styles.css"/>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script type="text/javascript" src="scoreboard.js"></script>
     </head>
     <body>
         <header>
@@ -25,22 +27,7 @@
                 <th>Nazwa</th>
                 <th>Punkty</th>
             </tr>
-            <?php
-                if(file_exists("scores.txt"))
-                {
-                    $input = fopen("scores.txt");
-                }
-                $name = "";
-                $pkt = 0;
-                while($rowinfo = fscanf($input, "%s %d"))
-                {
-                    echo <tr>;
-                    echo <th> . name . </th>;
-                    echo <th> . pkt . </th>;
-                    echo </tr>;
-                }
-
-            ?>
+            
         </table>
 
         

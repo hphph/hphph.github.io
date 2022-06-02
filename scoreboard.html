@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Strona</title>
+        <link rel="stylesheet" href="styles.css"/>
+    </head>
+    <body>
+        <header>
+            <a href="./"><img class="logo" src="images/logo.png" alt="logo" height=64 width=64></a>
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="/asteroids">Asteroids</a></li>
+                    <li><a href="/pong">Breakout</a></li>
+                    <li><a href="/tictactoe">Kółko i krzyżyk</a></li>
+                    <li><a href="#">Tablica wyników</a></li>
+                    <li><a href="/tdov.html">Twisted Dream of Void</a></li>
+                </ul>
+            </nav>
+            <div></div>
+        </header>
+        <p1> Jest to strona na zaliczenie przedmiotu WWW</p1>
+        
+        <table style="width: 100%">
+            <tr>
+                <th>Nazwa</th>
+                <th>Punkty</th>
+            </tr>
+            <?php
+                if(file_exists("scores.txt"))
+                {
+                    $input = fopen("scores.txt");
+                }
+                $name = "";
+                $pkt = 0;
+                while($rowinfo = fscanf($input, "%s %d"))
+                {
+                    echo <tr>;
+                    echo <th> . name . </th>;
+                    echo <th> . pkt . </th>;
+                    echo </tr>;
+                }
+
+            ?>
+        </table>
+
+        
+
+    </body>
+</html>

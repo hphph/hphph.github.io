@@ -2,4 +2,4 @@ RewriteEngine on
 RewriteRule asteroids asteroids.html
 RewriteRule pong pong.html
 RewriteRule tictactoe tictactoe.html
-RewriteRule dream tdov.html
+RewriteRule dreams tdov.html

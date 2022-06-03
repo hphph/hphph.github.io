@@ -12,7 +12,7 @@ $(function ()
             }
             else
             {
-                alert(str);
+                $(".p1").text(str);
                 str = "";
                 i++;
             }

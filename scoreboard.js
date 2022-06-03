@@ -13,6 +13,7 @@ $(function ()
             else
             {
                 $("p1").text(str);
+                alert(str);
                 str = "";
                 i++;
             }

@@ -2,10 +2,20 @@ $(function ()
 {
     $.get( "scores.txt", function( data ) {
         var i = 0;
-        while(data[i] != '/n')
+        str = "";
+        while(data[i] != null)
         {
-            alert(data[i]);
-            i++;
+            if(data[i] != ' ')
+            {
+                str += data[i];
+                i++;
+            }
+            else
+            {
+                alert(str);
+                str = "";
+                i++;
+            }
         }
     });
 });

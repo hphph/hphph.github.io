@@ -1,6 +1,9 @@
 $(function ()
 {
     $.get( "scores.txt", function( data ) {
-        alert(data[0]);
+        while(data[i] != '/n')
+        {
+            alert(data[i]);
+        }
     });
 });

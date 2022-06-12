@@ -83,13 +83,12 @@ $(function ()
                             if(sign == 'O')
                             {
                                 returnVal = "Wygrana";
-                                onEnd(returnVal);
+                                numWins++;
                                 return;
                             }
                             else
                             {
                                 returnVal = "Przegrana";
-                                onEnd(returnVal);
                                 return;
                             }
                             break;
@@ -99,7 +98,6 @@ $(function ()
                     $.get("gamePaused.txt", function(data, status){
                         $(".gamePaused").html(data);
                     });
-                    onEnd(returnVal);
                     return;
                 }
                 if(isGameRunning)
@@ -153,13 +151,11 @@ $(function ()
                         returnVal = "Wygrana";
                         numWins++;
                         $("#score").text("Wynik: " + numWins);
-                        onEnd(returnVal);
                         return;
                     }
                     else
                     {
                         returnVal = "Przegrana";
-                        onEnd(returnVal);
                         return;
                     }
                     break;

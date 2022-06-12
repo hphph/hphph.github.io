@@ -1,6 +1,5 @@
-<p>Wygrana</p>
+<p id="state">Wygrana</p>
             <br>
             <div class="buttons">
-                <li>Zapisz wynik</li>
                 <li id="reset">Reset</li>
             </div>

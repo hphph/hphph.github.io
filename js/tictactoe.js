@@ -84,11 +84,14 @@ $(function ()
                             {
                                 returnVal = "Wygrana";
                                 numWins++;
+                                $("#score").text("Wynik: " + numWins);
+                                $("#state").text(returnVal);
                                 return;
                             }
                             else
                             {
                                 returnVal = "Przegrana";
+                                $("#state").text(returnVal);
                                 return;
                             }
                             break;
@@ -151,11 +154,13 @@ $(function ()
                         returnVal = "Wygrana";
                         numWins++;
                         $("#score").text("Wynik: " + numWins);
+                        $("#state").text(returnVal);
                         return;
                     }
                     else
                     {
                         returnVal = "Przegrana";
+                        $("#state").text(returnVal);
                         return;
                     }
                     break;

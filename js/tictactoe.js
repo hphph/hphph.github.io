@@ -32,12 +32,14 @@ $(function ()
         returnVal = "Remis";
         actSign = 'O';
         $(".tile").text("");
+        $("#state").text("");
     });
     
         
     $(".tile").click(function(){
         if(isGameRunning)
         {
+            $("#state").text("");
             let id = $(this).attr('id');
             if(board[id] == '')
             {
@@ -78,7 +80,7 @@ $(function ()
                         {
                             isGameRunning = false;
                             $.get("gamePaused.txt", function(data, status){
-                                $(".gamePaused").html(data);
+                            $(".gamePaused").html(data);
                             });
                             if(sign == 'O')
                             {
@@ -100,6 +102,7 @@ $(function ()
                     isGameRunning = false;
                     $.get("gamePaused.txt", function(data, status){
                         $(".gamePaused").html(data);
+                        $("#state").text(returnVal);
                     });
                     return;
                 }

@@ -1,4 +1,3 @@
-<p id="state">Wygrana</p>
             <br>
             <div class="buttons">
                 <li id="reset">Reset</li>

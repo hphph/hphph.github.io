@@ -123,6 +123,11 @@ figcaption{
     color: #E5E9F0;
 
 }
+#state{
+    text-align: center;
+    font-size: 30px;
+}
+
 article p{
     background-color: #2E3440;
     margin-top: 5px;
